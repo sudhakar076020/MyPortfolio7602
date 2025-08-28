@@ -1,0 +1,283 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Barcode+39+Text&family=Orbitron:wght@900&family=Playwrite+VN+Guides&display=swap");
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
+}
+
+.banner-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.banner-content {
+  width: 100%;
+  max-width: 900px;
+  height: 90vh;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  background-color: #e7e7e7;
+  border: 2px solid #e7e7e7;
+}
+
+.greeting {
+  font-size: 1.5rem;
+  color: #ed380b;
+  text-align: left;
+  letter-spacing: 1px;
+  font-family: "Castoro", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.name,
+.role {
+  font-size: 3.8rem;
+  font-weight: bold;
+  color: #1b1b1b;
+  text-align: left;
+  font-family: "Castoro", serif;
+  font-weight: 400;
+}
+
+.home-buttons-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.home-buttons-card button {
+  width: 40%;
+  outline: none;
+  cursor: pointer;
+  letter-spacing: 3px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 20px;
+}
+
+.more-about-btn {
+  background-color: #1b1b1b;
+  color: #ffffff;
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+.get-in-touch-btn {
+  background-color: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  transition: background-color 0.3s ease;
+}
+
+/* get-my-cv */
+.get-my-cv-sm-container {
+  display: none;
+}
+
+.get-my-cv-lg-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.horizontal-lg-line {
+  width: 50%;
+  height: 1px;
+  background-color: #e7e7e7;
+}
+
+.get-my-cv-sm-container .get-my-cv-btn,
+.get-my-cv-lg-container .get-my-cv-btn {
+  color: #ffffff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 13px 16px;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.get-my-cv-lg-container .get-my-cv-btn {
+  border: 1px solid #e7e7e7;
+  width: 200px;
+  height: 50px;
+}
+
+.get-my-cv-sm-container .get-my-cv-btn {
+  border: none;
+  transition: border-bottom 0.3s ease;
+  &:hover {
+    border-bottom: 2px solid #ff5533;
+  }
+}
+
+.banner-image {
+  width: 50vw;
+  height: 90vh;
+  object-fit: cover;
+  object-position: center;
+  background-image: url("https://themewagon.github.io/Hudson/images/intro-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  /* border: 2px solid red; */
+}
+
+/* Banner large screen social icons container */
+
+.banner-social-icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  gap: 25px;
+  margin-right: 25px;
+  margin-bottom: 25px;
+  /* border: 2px solid #e7e7e7; */
+  padding: 10px;
+  height: 60%;
+}
+
+.social-icon {
+  color: #e7e7e7;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.vertical-line {
+  width: 1px;
+  height: 100px; /* or another suitable fixed height */
+  background-color: #e7e7e7;
+  margin-left: 50%;
+  margin-top: 10px;
+}
+/* Social media icons inside circle btn */
+.circle-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+  border: 1.5px solid #e7e7e7;
+  background-color: transparent;
+}
+
+.down-arrow-icon {
+  color: #e7e7e7;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .banner-container {
+    background-image: url("https://themewagon.github.io/Hudson/images/intro-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    /* margin-top: 64px; */
+  }
+
+  .banner-content {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    margin-top: 155px;
+    background-color: transparent;
+  }
+
+  .greeting {
+    font-size: 1.2rem;
+    align-self: center;
+  }
+
+  .name,
+  .role {
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
+    margin: 2px 0;
+    color: #e7e7e7;
+  }
+
+  .home-buttons-card button {
+    width: 95%;
+    padding: 18px;
+    font-size: 0.9rem;
+  }
+
+  .more-about-btn {
+    background-color: #e7e7e7;
+    color: #1b1b1b;
+  }
+
+  .get-in-touch-btn {
+    background-color: transparent;
+    color: #e7e7e7;
+    border: 2px solid #e7e7e7;
+  }
+
+  .horizontal-line {
+    background-color: #e7e7e7;
+    margin-right: 8px;
+    margin-left: 17px;
+    width: 20%;
+    height: 1px;
+  }
+
+  .get-my-cv-sm-container {
+    align-self: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-top: 35px;
+  }
+
+  .get-my-cv-btn {
+    color: #ffffff;
+    border: none;
+    &:hover {
+      border-bottom: 2px solid #ff5533;
+    }
+  }
+  .banner-image {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .home-buttons-card {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+}
