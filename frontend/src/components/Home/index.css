@@ -1,283 +1,196 @@
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Barcode+39+Text&family=Orbitron:wght@900&family=Playwrite+VN+Guides&display=swap");
-
-.home-container {
+.banner {
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: stretch;
-  width: 100%;
-}
-
-.banner-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  overflow: hidden;
-}
-
-.banner-content {
-  width: 100%;
-  max-width: 900px;
-  height: 90vh;
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 10px;
-  background-color: #e7e7e7;
-  border: 2px solid #e7e7e7;
-}
-
-.greeting {
-  font-size: 1.5rem;
-  color: #ed380b;
-  text-align: left;
-  letter-spacing: 1px;
-  font-family: "Castoro", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.name,
-.role {
-  font-size: 3.8rem;
-  font-weight: bold;
-  color: #1b1b1b;
-  text-align: left;
-  font-family: "Castoro", serif;
-  font-weight: 400;
-}
-
-.home-buttons-card {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  gap: 18px;
-  margin-top: 20px;
-}
-
-.home-buttons-card button {
-  width: 40%;
-  outline: none;
-  cursor: pointer;
-  letter-spacing: 3px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  padding: 20px;
-}
-
-.more-about-btn {
-  background-color: #1b1b1b;
-  color: #ffffff;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-
-.get-in-touch-btn {
-  background-color: transparent;
-  color: #000000;
-  border: 2px solid #000000;
-  transition: background-color 0.3s ease;
-}
-
-/* get-my-cv */
-.get-my-cv-sm-container {
-  display: none;
-}
-
-.get-my-cv-lg-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-.horizontal-lg-line {
-  width: 50%;
-  height: 1px;
-  background-color: #e7e7e7;
-}
-
-.get-my-cv-sm-container .get-my-cv-btn,
-.get-my-cv-lg-container .get-my-cv-btn {
-  color: #ffffff;
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  padding: 13px 16px;
-  outline: none;
-  cursor: pointer;
-  background-color: transparent;
-}
-
-.get-my-cv-lg-container .get-my-cv-btn {
-  border: 1px solid #e7e7e7;
-  width: 200px;
-  height: 50px;
-}
-
-.get-my-cv-sm-container .get-my-cv-btn {
-  border: none;
-  transition: border-bottom 0.3s ease;
-  &:hover {
-    border-bottom: 2px solid #ff5533;
-  }
-}
-
-.banner-image {
-  width: 50vw;
-  height: 90vh;
-  object-fit: cover;
-  object-position: center;
-  background-image: url("https://themewagon.github.io/Hudson/images/intro-bg.jpg");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-end;
-  /* border: 2px solid red; */
-}
-
-/* Banner large screen social icons container */
-
-.banner-social-icons {
-  display: flex;
-  flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  gap: 25px;
-  margin-right: 25px;
-  margin-bottom: 25px;
-  /* border: 2px solid #e7e7e7; */
-  padding: 10px;
-  height: 60%;
+  padding: 60px;
+  background: linear-gradient(to left, #fff, #f1f7fe);
+  min-height: 90vh;
 }
 
-.social-icon {
-  color: #e7e7e7;
-  font-size: 1.5rem;
-  transition: color 0.3s ease;
+.banner-text {
+  flex: 1;
+  max-width: 600px;
 }
 
-.vertical-line {
-  width: 1px;
-  height: 100px; /* or another suitable fixed height */
-  background-color: #e7e7e7;
-  margin-left: 50%;
-  margin-top: 10px;
+.intro {
+  font-size: 18px;
+  color: #555;
 }
-/* Social media icons inside circle btn */
-.circle-btn {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
+
+.banner-text h1 {
+  font-size: 48px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.highlight {
+  color: #4f46e5;
+}
+
+.banner-text h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.description {
+  font-size: 16px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.banner-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.banner-buttons button {
+  padding: 12px 24px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  border: none;
+  color: white;
+  background: linear-gradient(to right, #6366f1, #9333ea);
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.btn-outline {
+  border: 1px solid #ccc;
+  background: white;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-outline:hover {
+  background: #f3f3f3;
+}
+
+/* Right side */
+.banner-image {
+  flex: 1;
   display: flex;
   justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  outline: none;
-  border: 1.5px solid #e7e7e7;
-  background-color: transparent;
+  position: relative;
 }
 
-.down-arrow-icon {
-  color: #e7e7e7;
-  font-size: 1.5rem;
-  transition: color 0.3s ease;
+.profile-pic {
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
-@media screen and (max-width: 768px) {
-  .banner-container {
-    background-image: url("https://themewagon.github.io/Hudson/images/intro-bg.jpg");
-    background-size: cover;
-    background-position: center;
+.profile-pic img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Floating cards */
+.card {
+  position: absolute;
+  background: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+  animation: float 6s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(1deg);
+  }
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+}
+
+.card-left-top {
+  left: 120px;
+  top: 60px;
+}
+
+.card-left-bottom {
+  left: 110px;
+  bottom: 50px;
+}
+
+.card-right-top {
+  right: 140px;
+  top: 80px;
+}
+
+@media (max-width: 768px) {
+  .banner {
     flex-direction: column;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    /* margin-top: 64px; */
+    padding: 30px;
   }
 
-  .banner-content {
-    width: 100%;
-    height: auto;
-    padding: 15px;
-    margin-top: 155px;
-    background-color: transparent;
-  }
-
-  .greeting {
-    font-size: 1.2rem;
-    align-self: center;
-  }
-
-  .name,
-  .role {
-    font-size: 2rem;
+  .banner-text {
     text-align: center;
-    width: 100%;
-    margin: 2px 0;
-    color: #e7e7e7;
   }
 
-  .home-buttons-card button {
-    width: 95%;
-    padding: 18px;
-    font-size: 0.9rem;
-  }
-
-  .more-about-btn {
-    background-color: #e7e7e7;
-    color: #1b1b1b;
-  }
-
-  .get-in-touch-btn {
-    background-color: transparent;
-    color: #e7e7e7;
-    border: 2px solid #e7e7e7;
-  }
-
-  .horizontal-line {
-    background-color: #e7e7e7;
-    margin-right: 8px;
-    margin-left: 17px;
-    width: 20%;
-    height: 1px;
-  }
-
-  .get-my-cv-sm-container {
-    align-self: flex-start;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    margin-top: 35px;
-  }
-
-  .get-my-cv-btn {
-    color: #ffffff;
-    border: none;
-    &:hover {
-      border-bottom: 2px solid #ff5533;
-    }
-  }
   .banner-image {
-    display: none;
+    margin-top: 20px;
+  }
+
+  .banner-buttons {
+    justify-content: center;
+  }
+
+  .card {
+    font-size: 12px;
+  }
+  .card-left-top {
+    left: -50px;
+    top: 60px;
+  }
+
+  .card-left-bottom {
+    left: -70px;
+    bottom: 50px;
+  }
+
+  .card-right-top {
+    right: -80px;
+    top: 90px;
   }
 }
 
-@media screen and (max-width: 500px) {
-  .home-buttons-card {
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
+@media (max-width: 1024px) {
+  .card-left-top {
+    left: -25px;
+    top: 60px;
+  }
+
+  .card-left-bottom {
+    left: -70px;
+    bottom: 10px;
+  }
+
+  .card-right-top {
+    right: -50px;
+    top: 90px;
   }
 }

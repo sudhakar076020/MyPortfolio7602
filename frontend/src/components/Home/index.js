@@ -1,126 +1,48 @@
+import { FiDownload } from "react-icons/fi";
 import "./index.css";
-import { motion } from "framer-motion"; // Importing framer-motion for animations
-
-// React Icons
-import {
-  FaGithub,
-  FaLinkedin,
-  FaTwitter,
-  FaFacebookSquare,
-} from "react-icons/fa"; // Social media icons
-import { GoTriangleDown } from "react-icons/go"; //Down arrow icon
-
-import Navbar from "../Navbar";
 
 const Home = () => {
   return (
-    <div className="home-container">
-      <Navbar />
-      <div className="banner-container">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-        >
-          <div className="banner-content">
-            <p className="greeting">Hello</p>
-            <h1 className="name">I'm Sudhakar</h1>
-            <p className="role">MERN Full Stack Web Developer</p>
-            <div className="home-buttons-card">
-              <button type="button" className="more-about-btn">
-                MORE ABOUT ME
-              </button>
-              <button type="button" className="get-in-touch-btn">
-                GET IN TOUCH
-              </button>
-            </div>
-          </div>
-        </motion.div>
+    <>
+      <section className="banner">
+        {/* Left Content */}
+        <div className="banner-text">
+          <p className="intro">Hello, I'm</p>
+          <h1>
+            <span className="highlight">Sudhakar</span>
+          </h1>
+          <h2>Full Stack Developer</h2>
+          <p className="description">
+            Passionate about creating exceptional digital experiences through
+            responsive web and mobile applications. I specialize in modern
+            technologies and love turning complex problems into simple,
+            beautiful solutions.
+          </p>
 
-        <div className="get-my-cv-sm-container">
-          <div className="horizontal-line"></div>
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1.2 }}
-          >
-            <button type="button" className="get-my-cv-btn">
-              GET MY CV
+          <div className="banner-buttons">
+            <button className="btn-primary">View My Work</button>
+            <button className="btn-outline">
+              <FiDownload /> Download CV
             </button>
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: -50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <div className="banner-image">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 1.10 }}
-            >
-              <div className="get-my-cv-lg-container">
-                <div className="horizontal-lg-line"></div>
-                <button type="button" className="get-my-cv-btn">
-                  GET MY CV
-                </button>
-              </div>
-            </motion.div>
-
-            <div className="banner-social-icons">
-              <motion.div
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1 }}
-              >
-                <a href="" target="_blank" rel="noopener noreferrer">
-                  <FaGithub className="social-icon" />
-                </a>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
-              >
-                <a href="" target="_blank" rel="noopener noreferrer">
-                  <FaLinkedin className="social-icon" />
-                </a>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.4 }}
-              >
-                <a href="" target="_blank" rel="noopener noreferrer">
-                  <FaTwitter className="social-icon" />
-                </a>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.6 }}
-              >
-                <a href="" target="_blank" rel="noopener noreferrer">
-                  <FaFacebookSquare className="social-icon" />
-                </a>
-                <div className="vertical-line"></div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.8 }}
-              >
-                <button type="button" className="circle-btn">
-                  <GoTriangleDown className="down-arrow-icon" />
-                </button>
-              </motion.div>
-            </div>
+        {/* Right Content */}
+        <div className="banner-image">
+          <div className="profile-pic">
+            <img
+              src="https://res.cloudinary.com/dehz5pshe/image/upload/v1754581732/WhatsApp_Image_2025-08-07_at_9.12.40_PM_dlulyu.jpg"
+              alt="Profile"
+            />
           </div>
-        </motion.div>
-      </div>
-    </div>
+
+          {/* Floating skill cards */}
+          <div className="card card-left-top">Frontend Development</div>
+          <div className="card card-left-bottom">Web Applications</div>
+          <div className="card card-right-top">Backend Development</div>
+        </div>
+      </section>
+    </>
   );
 };
 
