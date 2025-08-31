@@ -1,48 +1,120 @@
-import { FiDownload } from "react-icons/fi";
 import "./index.css";
+import { motion } from "framer-motion"; // Importing framer-motion for animations
+
+// React Icons
+import {
+  FaGithub,
+  FaLinkedin,
+  FaTwitter,
+  FaFacebookSquare,
+} from "react-icons/fa"; // Social media icons
+import { GoTriangleDown } from "react-icons/go"; //Down arrow icon
+import { MdOutlineFileDownload } from "react-icons/md"; //Download
+import { GoArrowRight } from "react-icons/go"; // Right arrow
+
+const socialMediaIcons = [
+  {
+    id: "GITHUB",
+    icon: <FaGithub className="social-icon" />,
+    link: "https://github.com/yourusername",
+  },
+  {
+    id: "LINKEDIN",
+    icon: <FaLinkedin className="social-icon" />,
+    link: "https://linkedin.com/in/yourusername",
+  },
+  {
+    id: "TWITTER",
+    icon: <FaTwitter className="social-icon" />,
+    link: "https://twitter.com/yourusername",
+  },
+  {
+    id: "FACEBOOK",
+    icon: <FaFacebookSquare className="social-icon" />,
+    link: "https://facebook.com/yourusername",
+  },
+];
 
 const Home = () => {
   return (
-    <>
-      <section className="banner">
-        {/* Left Content */}
-        <div className="banner-text">
-          <p className="intro">Hello, I'm</p>
-          <h1>
-            <span className="highlight">Sudhakar</span>
+    <div className="banner-container">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1 }}
+      >
+        <div className="banner-content">
+          <p className="greeting">Hello</p>
+          <h1 className="name">
+            I'm <span>Sudhakar</span>
           </h1>
-          <h2>Full Stack Developer</h2>
+          <p className="role">MERN Full Stack Web Developer</p>
           <p className="description">
-            Passionate about creating exceptional digital experiences through
-            responsive web and mobile applications. I specialize in modern
-            technologies and love turning complex problems into simple,
-            beautiful solutions.
+            I create responsive and user-friendly web applications using the
+            MERN stack.
           </p>
-
-          <div className="banner-buttons">
-            <button className="btn-primary">View My Work</button>
-            <button className="btn-outline">
-              <FiDownload /> Download CV
+          <div className="home-buttons-card">
+            <button type="button" className="view-my-work-btn">
+              View My Work
+              <GoArrowRight size={25} className="arrow-icon" />
+            </button>
+            <button type="button" className="download-resume-btn">
+              Download Resume
+              <MdOutlineFileDownload size={25} className="download-icon" />
             </button>
           </div>
         </div>
+      </motion.div>
 
-        {/* Right Content */}
+      <motion.div
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
         <div className="banner-image">
-          <div className="profile-pic">
-            <img
-              src="https://res.cloudinary.com/dehz5pshe/image/upload/v1754581732/WhatsApp_Image_2025-08-07_at_9.12.40_PM_dlulyu.jpg"
-              alt="Profile"
-            />
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
+          >
+            <div className="get-my-cv-lg-container">
+              <div className="horizontal-lg-line"></div>
+              <button type="button" className="get-in-touch-btn">
+                Get in Touch
+              </button>
+            </div>
+          </motion.div>
 
-          {/* Floating skill cards */}
-          <div className="card card-left-top">Frontend Development</div>
-          <div className="card card-left-bottom">Web Applications</div>
-          <div className="card card-right-top">Backend Development</div>
+          {/* Social media icons */}
+          <div className="banner-social-icons">
+            {socialMediaIcons.map((icon, index) => (
+              <motion.div
+                key={icon.id}
+                initial={{ opacity: 0, y: -50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1 + index * 0.2 }}
+              >
+                <a href={icon.link} target="_blank" rel="noopener noreferrer">
+                  {icon.icon}
+                </a>
+              </motion.div>
+            ))}
+
+            {/* Vertical line and down arrow button */}
+            <motion.div
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.8 }}
+            >
+              <div className="vertical-line"></div>
+              <button type="button" className="circle-btn">
+                <GoTriangleDown className="down-arrow-icon" />
+              </button>
+            </motion.div>
+          </div>
         </div>
-      </section>
-    </>
+      </motion.div>
+    </div>
   );
 };
 
