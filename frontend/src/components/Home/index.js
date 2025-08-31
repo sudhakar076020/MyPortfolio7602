@@ -77,7 +77,7 @@ const Home = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 1.1 }}
           >
-            <div className="get-my-cv-lg-container">
+            <div className="get-in-touch-container">
               <div className="horizontal-lg-line"></div>
               <button type="button" className="get-in-touch-btn">
                 Get in Touch

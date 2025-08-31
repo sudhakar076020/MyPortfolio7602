@@ -56,18 +56,6 @@ const Navbar = () => {
         ))}
       </ul>
 
-      {/* Social Icons */}
-      <div className="nav-icons">
-        <a href="https://github.com/sudhakar076020/" target="_blank">
-          <FiGithub />
-        </a>
-        <a href="https://www.linkedin.com/in/sudhakar-m7602" target="_blank">
-          <FiLinkedin />
-        </a>
-        <a href="mailto:sudhakar7602m@gmail.com" target="_blank">
-          <FiMail />
-        </a>
-      </div>
       {/* Small device menu */}
       <div className="popup-wrapper">
         <Popup
