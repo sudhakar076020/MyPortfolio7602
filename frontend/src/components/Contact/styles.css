@@ -62,7 +62,7 @@
 }
 
 .form-subtitle {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #9a8f86;
   margin-bottom: 20px;
 }
@@ -191,7 +191,7 @@
 
 .description {
   color: #777;
-  font-size: 14px;
+  font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 32px;
 }

@@ -1,6 +1,10 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+// React Toast
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
@@ -17,6 +21,19 @@ const App = () => {
         <Route exact path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
+      <ToastContainer
+        position="top-right" // where to show the toast
+        autoClose={5000} // auto dismiss after 5s (false = manual close)
+        hideProgressBar={false} // show/hide the progress bar
+        newestOnTop={false} // newest toast at the top
+        closeOnClick // allow dismiss on click
+        rtl={false} // support right-to-left layout
+        pauseOnFocusLoss // pause timer when window loses focus
+        draggable // allow drag to dismiss
+        pauseOnHover // pause timer on hover
+        theme="light"
+        style={{marginTop: "55px"}}
+      />
     </BrowserRouter>
   );
 };

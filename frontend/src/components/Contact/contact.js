@@ -78,7 +78,7 @@ const socialLinks = [
 ];
 
 // User sending mail
-const USER_API_URL = "http://localhost:5000/api/contact/user";
+const USER_API_URL = "http://localhost:5000/api/contact/client";
 
 // Admin sending mail
 const ADMIN_API_URL = "http://localhost:5000/api/contact/admin";
@@ -117,9 +117,11 @@ const Contact = () => {
         message: "",
       });
       setLoader(false);
+      console.log(contactFormData)
     } catch (error) {
       toast.error("Error submitting contact form");
       setLoader(false); //Loader
+       console.log(contactFormData)
     }
   };
 
@@ -209,10 +211,8 @@ const Contact = () => {
             <p className="subtitle">KEEP CLOSE</p>
             <h2 className="right-title">Contact Information</h2>
             <p className="description">
-              At GrandVista Restaurant, we blend fine flavors with warm
-              hospitality in an inviting setting. Whether it’s a casual meal or
-              a special celebration, every visit promises great taste, comfort,
-              and memorable moments.
+              Prefer to reach out directly? Here are the best ways to get in
+              touch with me.
             </p>
 
             <div className="contact-info">
