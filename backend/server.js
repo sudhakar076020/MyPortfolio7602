@@ -1,14 +1,15 @@
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const contactRoutes = require("./routes/contactRoutes");
-require("dotenv").config();
 
 const app = express();
+
 app.use(cors());
 app.use(express.json());
 
 // routes
-app.use("/api/contact", contactRoutes);
+app.use("/api/portfolio-contact", contactRoutes);
 
 // test
 app.get("/", (req, res) => {

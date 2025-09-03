@@ -29,7 +29,7 @@ const addressDetails = [
     icon: <FiMapPin className="location-icon" />,
     label: "Location",
     description: "Mettupalayam, Coimbatore",
-    href: "https://www.google.com/maps?q=Mettupalayam,+Coimbatore",
+    href: "https://maps.app.goo.gl/qN5YzW12px5GwzkG9",
   },
   {
     icon: <FiMail className="email-icon" />,
@@ -78,10 +78,10 @@ const socialLinks = [
 ];
 
 // User sending mail
-const USER_API_URL = "http://localhost:5000/api/contact/client";
+const USER_API_URL = "http://localhost:5000/api/portfolio-contact/client";
 
 // Admin sending mail
-const ADMIN_API_URL = "http://localhost:5000/api/contact/admin";
+const ADMIN_API_URL = "http://localhost:5000/api/portfolio-contact/admin";
 const ADMIN_HEADERS = { headers: { "x-user-role": "admin" } };
 
 const Contact = () => {
@@ -117,20 +117,18 @@ const Contact = () => {
         message: "",
       });
       setLoader(false);
-      console.log(contactFormData)
+      console.log(contactFormData);
     } catch (error) {
       toast.error("Error submitting contact form");
-      setLoader(false); //Loader
-       console.log(contactFormData)
+      console.error("Backend error:", error.response?.data || error.message);
+      setLoader(false);
     }
   };
 
   return (
     <>
       <div className="contact-header">
-        <h2 className="header-title">
-          Get In <span>Touch</span>
-        </h2>
+        <h2 className="header-title">Get In Touch</h2>
         <p>Let's discuss your project and find the best solutions together.</p>
       </div>
       <section className="contact-section">

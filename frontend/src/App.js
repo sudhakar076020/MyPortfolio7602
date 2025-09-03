@@ -9,6 +9,7 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import About from "./components/About";
 import Contact from "./components/Contact/contact";
+import EducationSection from "./components/Education/education";
 import Footer from "./components/Footer";
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
         <Route exact path="/" element={<Home />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contact />} />
+        <Route exact path="/education" element={<EducationSection />} />
       </Routes>
       <Footer />
       <ToastContainer
@@ -32,7 +34,7 @@ const App = () => {
         draggable // allow drag to dismiss
         pauseOnHover // pause timer on hover
         theme="light"
-        style={{marginTop: "55px"}}
+        style={{ marginTop: "55px" }}
       />
     </BrowserRouter>
   );

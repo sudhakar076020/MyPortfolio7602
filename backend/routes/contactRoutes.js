@@ -2,98 +2,69 @@ const express = require("express");
 const router = express.Router();
 const transporter = require("../mailer/mailer");
 
-const authMiddleware = require("../middleware/middleware");
-
-// Send Email Admin  (admin side)
-router.post("/admin", authMiddleware, async (req, res) => {
-  const { userName, userEmail, subject, message } = req.body;
-
-  // Email validation
-  if (!userEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail)) {
-    return res.status(400).json({
-      success: false,
-      message: "Invalid email address. Please provide a valid email.",
-    });
-  }
-
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: userEmail, // sending back to the user who filled contact form
-    subject: "We’ve Received Your Message - GrandVista",
-    html: `
-    <h2>Thank You for Contacting GrandVista</h2>
-    <p>Dear ${userName},</p>
-    <p>We’ve received your message and our team will get back to you shortly.</p>
-    
-    <h3>Your Submitted Details</h3>
-    <ul>
-      <li><strong>Name:</strong> ${userName}</li>
-      <li><strong>Email:</strong> ${userEmail}</li>
-      <li><strong>Subject:</strong> ${subject}</li>
-      <li><strong>Comments:</strong> ${message}</li>
-    </ul>
-
-    <p>Our customer care team will review your request and respond as soon as possible.  
-    If your inquiry is urgent, please don’t hesitate to reach us directly through the details below.</p>
-
-    <p>Warm regards,</p>
-    <p><strong>The GrandVista Team</strong></p>
-
-    <hr />
-    <p><strong>Contact Us:</strong></p>
-    <p>
-      📍 GrandVista Fine Dining, MG Road, Bengaluru, India <br />
-      📞 +91 98765 43210 <br />
-      ✉️ support@grandvista.com
-    </p>
-  `,
-  };
-
+// =======================
+//  POST /client
+//  User → Admin
+// =======================
+router.post("/client", async (req, res) => {
   try {
+    const { userName, userEmail, subject, message } = req.body;
+
+    if (!userName || !userEmail || !message) {
+      return res.status(400).json({ error: "All fields are required" });
+    }
+
+    const mailOptions = {
+      from: `"${userName}" <${userEmail}>`,
+      to: process.env.EMAIL_USER, // send to admin email
+      subject: `📩 New Contact Form Submission: ${subject || "No Subject"}`,
+      html: `
+        <h2>New Contact Form Submission</h2>
+        <p><b>Name:</b> ${userName}</p>
+        <p><b>Email:</b> ${userEmail}</p>
+        <p><b>Message:</b></p>
+        <p>${message}</p>
+      `,
+    };
+
     await transporter.sendMail(mailOptions);
-    res.json({ success: true, message: "Mail sent successfully!" });
+    res.status(200).json({ success: "Message sent to admin ✅" });
   } catch (error) {
-    res
-      .status(500)
-      .json({ success: false, message: "Error sending mail", error });
+    console.error("❌ Client → Admin Mail Error:", error);
+    res.status(500).json({ error: "Failed to send message" });
   }
 });
 
-// Send Email user feedback (user side)
-router.post("/client", async (req, res) => {
-  const { userName, userEmail, subject, message } = req.body;
-
-  // Email validation
-  if (!userEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(userEmail)) {
-    return res.status(400).json({
-      success: false,
-      message: "Invalid email address. Please provide a valid email.",
-    });
-  }
-
-  const mailOptions = {
-    from: process.env.EMAIL_USER, // must be your Gmail
-    replyTo: userEmail, // user’s email (so you can reply)
-    to: process.env.EMAIL_USER, // receiving email
-    subject: `New Contact Form Submission - ${subject}`,
-    html: `
-    <h2>New Contact Form Submission</h2>
-    <ul>
-      <li><strong>Name:</strong> ${userName}</li>
-      <li><strong>Email:</strong> ${userEmail}</li>
-      <li><strong>Subject:</strong> ${subject}</li>
-      <li><strong>Comments:</strong> ${message}</li>
-    </ul>
-  `,
-  };
-
+// =======================
+//  POST /admin
+//  Admin → User (auto-reply)
+// =======================
+router.post("/admin", async (req, res) => {
   try {
+    const { userName, userEmail } = req.body;
+
+    if (!userEmail) {
+      return res.status(400).json({ error: "User email is required" });
+    }
+
+    const mailOptions = {
+      from: `"Sudhakar Portfolio" <${process.env.EMAIL_USER}>`,
+      to: userEmail, // send back to user
+      subject: "📬 Thank you for contacting me",
+      html: `
+        <h2>Hi ${userName || "there"},</h2>
+        <p>Thanks for reaching out to me via my portfolio site.</p>
+        <p>I’ve received your message and will get back to you as soon as possible.</p>
+        <br/>
+        <p>Best regards,<br/>Sudhakar</p>
+      `,
+    };
+
     await transporter.sendMail(mailOptions);
-    res.json({ success: true, message: "Mail sent successfully!" });
+    res.status(200).json({ success: "Auto-reply sent to user ✅" });
   } catch (error) {
-    res
-      .status(500)
-      .json({ success: false, message: "Error sending mail", error });
+    console.error("Email error:", error); 
+    res.status(500).json({ error: "Failed to send message" });
   }
 });
 
